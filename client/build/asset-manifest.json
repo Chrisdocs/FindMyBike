@@ -1,29 +1,33 @@
 {
   "files": {
-    "main.css": "/static/css/main.957e0e8e.chunk.css",
-    "main.js": "/static/js/main.2c927312.chunk.js",
-    "main.js.map": "/static/js/main.2c927312.chunk.js.map",
+    "main.css": "/static/css/main.98ad8d68.chunk.css",
+    "main.js": "/static/js/main.8472e8e3.chunk.js",
+    "main.js.map": "/static/js/main.8472e8e3.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.8a258a78.js",
     "runtime-main.js.map": "/static/js/runtime-main.8a258a78.js.map",
     "static/css/2.46add351.chunk.css": "/static/css/2.46add351.chunk.css",
-    "static/js/2.7407db0a.chunk.js": "/static/js/2.7407db0a.chunk.js",
-    "static/js/2.7407db0a.chunk.js.map": "/static/js/2.7407db0a.chunk.js.map",
+    "static/js/2.9938becf.chunk.js": "/static/js/2.9938becf.chunk.js",
+    "static/js/2.9938becf.chunk.js.map": "/static/js/2.9938becf.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2939bb7db2ba1295d6df922c46918604.js": "/precache-manifest.2939bb7db2ba1295d6df922c46918604.js",
+    "precache-manifest.18b21c7a79e8438c87c7df956f8ea9fa.js": "/precache-manifest.18b21c7a79e8438c87c7df956f8ea9fa.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.46add351.chunk.css.map": "/static/css/2.46add351.chunk.css.map",
-    "static/css/main.957e0e8e.chunk.css.map": "/static/css/main.957e0e8e.chunk.css.map",
-    "static/js/2.7407db0a.chunk.js.LICENSE.txt": "/static/js/2.7407db0a.chunk.js.LICENSE.txt",
+    "static/css/main.98ad8d68.chunk.css.map": "/static/css/main.98ad8d68.chunk.css.map",
+    "static/js/2.9938becf.chunk.js.LICENSE.txt": "/static/js/2.9938becf.chunk.js.LICENSE.txt",
     "static/media/bikesleuthbanner.jpg": "/static/media/bikesleuthbanner.77ad1876.jpg",
     "static/media/bikesleuthbannerdark.jpg": "/static/media/bikesleuthbannerdark.0625057f.jpg",
     "static/media/biketips.jpg": "/static/media/biketips.e41a5155.jpg",
-    "static/media/styles.css": "/static/media/revicons.2feb69cc.eot"
+    "static/media/double-lock.PNG": "/static/media/double-lock.17b78137.PNG",
+    "static/media/non-quick-release.PNG": "/static/media/non-quick-release.0e75490f.PNG",
+    "static/media/styles.css": "/static/media/revicons.2feb69cc.eot",
+    "static/media/serial-number.PNG": "/static/media/serial-number.d061cb69.PNG",
+    "static/media/ulock.PNG": "/static/media/ulock.1b74d8f6.PNG"
   },
   "entrypoints": [
     "static/js/runtime-main.8a258a78.js",
     "static/css/2.46add351.chunk.css",
-    "static/js/2.7407db0a.chunk.js",
-    "static/css/main.957e0e8e.chunk.css",
-    "static/js/main.2c927312.chunk.js"
+    "static/js/2.9938becf.chunk.js",
+    "static/css/main.98ad8d68.chunk.css",
+    "static/js/main.8472e8e3.chunk.js"
   ]
 }

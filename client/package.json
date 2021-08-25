@@ -8,12 +8,15 @@
     "@apollo/react-hooks": "^3.1.5",
     "@craco/craco": "^5.8.0",
     "@headlessui/react": "^1.4.0",
+    "@stripe/stripe-js": "^1.17.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "apollo-client": "^2.6.10",
+    "autoprefixer": "^9.8.6",
     "graphql": "^14.6.0",
     "jwt-decode": "^2.2.0",
+    "postcss": "^7.0.36",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-file-base64": "^1.0.3",
@@ -21,8 +24,7 @@
     "react-native-snap-carousel": "^3.9.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.36",
+    "stripe": "^8.170.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
   },
   "scripts": {
@@ -46,6 +48,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

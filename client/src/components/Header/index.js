@@ -24,7 +24,6 @@ const Header = () => {
                     <div className="nav-section">
                     <Nav />
                 </div>
-              
                 </div>
             </header>
         </div>

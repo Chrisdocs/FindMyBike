@@ -15,6 +15,7 @@ const Home = () => {
             <h4 className="how-to"><span className="dark:text-gray-200">How Does It Work!?</span></h4>
             </div>
             <div>
+<<<<<<< HEAD
                 <div class="max-w-md mx-auto bg-white dark:bg-gray-600 rounded-xl shadow-md overflow-hidden md:max-w-4xl">
                     <div class="md:flex">
                         <div className="how-to-list" class="p-8">
@@ -26,6 +27,19 @@ const Home = () => {
                             <p class="mt-2 text-gray-500 dark:text-gray-400">If a fellow bikeslueth spots or finds your bike they will be able to message personally.</p>
                             <p class="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-300 underline">You Get Your Bike Back</p>
                             <p class="mt-2 text-gray-500 dark:text-gray-400">With the help of your fellow bikeslueth you have the information necessary to recover your missing bike.</p>
+=======
+                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-4xl">
+                    <div className="md:flex">
+                        <div className="how-to-list p-8">
+                            <p className="block mt-1 text-lg leading-tight font-medium text-black underline">Register Your Bike</p>
+                            <p className="mt-2 text-gray-500">It’s simple. Sign up and register your bike(s). Enter the brand, model, year, serial number, description and your city.</p>
+                            <p className="block mt-1 text-lg leading-tight font-medium text-black underline">Update Your Bikes Status</p>
+                            <p className="mt-2 text-gray-500">If your bike goes missing, update it status to missing. It will then be added to the list of missing bikes in the community. Notifying your fellow bikeslueths to keep an eye out for it. </p>
+                            <p className="block mt-1 text-lg leading-tight font-medium text-black underline">Share Information</p>
+                            <p className="mt-2 text-gray-500">If a fellow bikeslueth spots or finds your bike they will be able to message personally.</p>
+                            <p className="block mt-1 text-lg leading-tight font-medium text-black underline">You Get Your Bike Back</p>
+                            <p className="mt-2 text-gray-500">With the help of your fellow bikeslueth you have the information necessary to recover your missing bike.</p>
+>>>>>>> 9062dca97977a1669ce96cdcf8cb80207a37c716
                         </div>
                     </div>
                 </div>

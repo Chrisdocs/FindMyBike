@@ -13,8 +13,10 @@ import Tips from '../../pages/Tips';
 import Login from '../../pages/Login';
 import Signup from '../../pages/Signup';
 import Message from '../../pages/Message';
+import Success from '../../pages/Success';
 
 import NoMatch from '../../pages/NoMatch';
+
 
 import '../../assets/styles/nav.css';
 
@@ -61,6 +63,7 @@ const Nav = () => {
                             <Route path="/Login" component={Login} />
                             <Route path="/Signup" component={Signup} />
                             <Route path="/Message" component={Message} />
+                            <Route path="/Success" component={Success} />
                             <Route component={NoMatch} />
                         </Switch>
                     </div>
