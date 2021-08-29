@@ -17,4 +17,14 @@
 
 .replyMargin {
   margin-left: 5px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  * {
+    font-size: small;
+  }
+  .backButton {
+    margin-left: 0;
+  }
 }
