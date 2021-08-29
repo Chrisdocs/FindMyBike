@@ -72,7 +72,7 @@ ul {
 }
 
 .subnav-content {
-  display: block;
+  display: none;
   position: absolute;
   left: 30%;
   width: 100%;
