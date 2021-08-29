@@ -40,7 +40,7 @@ const UpdateUserForm = () => {
     return (
         <div>
             <span id="addbikebtn" onClick={() => setOpen((open) => !open)}>
-                Update User Password
+                Update User
             </span>
             <Transition.Root show={open} as={Fragment}>
                 <Dialog
@@ -58,13 +58,13 @@ const UpdateUserForm = () => {
                                     onSubmit={handleFormSubmit}
                                 >
                                     <div className="mb-4">
-                                        {/* <label
+                                        <label
                                             className="block text-gray-700 text-sm font-bold mb-2"
                                             htmlFor="email"
                                         >
                                             New Email
-                                        </label> */}
-                                        {/* <input
+                                        </label> 
+                                        <input
                                             className="focus:outline-none focus:ring focus:border-blue-300 shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                                             id="email"
                                             name="email"
@@ -72,7 +72,7 @@ const UpdateUserForm = () => {
                                             placeholder="email"
                                             value={formState.email}
                                             onChange={handleChange}
-                                        /> */}
+                                        />
                                     </div>
                                     <div className="mb-6">
                                         <label
