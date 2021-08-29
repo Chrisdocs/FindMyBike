@@ -2,12 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 // import reportWebVitals from './reportWebVitals';
 
+const options = {
+  // you can also just use 'bottom center'
+  position: 'bottom left',
+  timeout: 5000,
+  transition: transitions.FADE,
+}
+
 ReactDOM.render(
   <React.StrictMode>
+    <AlertProvider template={AlertTemplate} {...options}>
     <App />
+    </AlertProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

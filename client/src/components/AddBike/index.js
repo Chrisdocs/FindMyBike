@@ -2,6 +2,8 @@ import React, { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useMutation } from "@apollo/client";
 import { ADD_BIKE, UPDATE_STATUS } from "../../utils/mutations";
+import { useAlert } from 'react-alert'
+
 import FileBase64 from "react-file-base64";
 import "../../assets/styles/addbike.css";
 
@@ -18,13 +20,14 @@ const AddBike = () => {
     description: "",
     image: "",
   });
+  const alert = useAlert()
   // set status of new bike
   const [statusState, setStatusState] = useState({
     location: "",
     isLost: "",
   });
 
-  const [addBike] = useMutation(ADD_BIKE);
+  const [addBike, { error }] = useMutation(ADD_BIKE);
   const [addStatus] = useMutation(UPDATE_STATUS);
 
   // update state based on form input changes
@@ -38,7 +41,7 @@ const AddBike = () => {
   const handleChangeStatus = event => {
     let isLost;
     const status = document.querySelector('[name="status"]').value;
-    if (status === "Not missing") {
+    if (status === "Not Missing") {
       isLost = false;
     } else {
       isLost = true;
@@ -81,9 +84,8 @@ const AddBike = () => {
       window.location.reload();
     } catch (e) {
       console.error(e);
-      window.location.reload();
-      window.alert(
-        "There was an error with adding your bike. Please make sure bike image is not larger than 64 KB."
+      alert.error(
+        "Error adding bike Image too large"
       );
     }
   };
@@ -98,6 +100,7 @@ const AddBike = () => {
       console.error(e);
     }
   }
+
 
   return (
     <div className="pt-10 pb-10 flex justify-center">
@@ -186,7 +189,7 @@ const AddBike = () => {
                             onChange={handleChangeStatus}
                             className="mt-1 mb-3 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                           >
-                            <option>Not missing</option>
+                            <option>Not Missing</option>
                             <option>Missing</option>
                           </select>
                         </div>
@@ -307,6 +310,7 @@ const AddBike = () => {
                       </div>
                       <div className="px-4 py-3 bg-gray-50 text-right sm:px-6"></div>
                     </div>
+                    {error && <div>Something went wrong.. Please try again</div>}
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                       <button
                         type="submit"

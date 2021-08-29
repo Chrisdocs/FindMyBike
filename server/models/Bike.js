@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 const statusSchema = require('./Status');
-const messageSchema = require('./Message');
+const Message = require('./Message');
 
 const bikeSchema = new Schema(
     {
@@ -30,7 +30,12 @@ const bikeSchema = new Schema(
             type: String
         },
         status: [statusSchema],
-        messages: [messageSchema],
+        messages: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Message'
+            }
+        ],
     }
 );
 

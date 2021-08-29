@@ -162,8 +162,27 @@ export const ADD_MESSAGE = gql`
                 _id
                 messageBody
                 createdAt
+                replyCount
                 username
             }
       }
+  }
+`;
+
+export const ADD_REPLY = gql`
+  mutation addReply($messageId: ID!, $replyBody: String!) {
+    addReply(messageId: $messageId, replyBody: $replyBody) {
+      _id
+      messageBody
+      username
+      replyCount
+      createdAt
+      replies {
+        _id
+        replyBody
+        username
+        createdAt
+      }
+    }
   }
 `;

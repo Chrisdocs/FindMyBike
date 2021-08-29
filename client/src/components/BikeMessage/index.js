@@ -1,30 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_MESSAGE } from "../../utils/mutations";
-import { QUERY_USER, QUERY_BIKE_MESSAGES } from "../../utils/queries";
+import { ADD_REPLY } from "../../utils/mutations";
+// import { QUERY_USER, QUERY_MESSAGE } from "../../utils/queries";
+import { useAlert } from 'react-alert';
+
 import "../../assets/styles/bikemessage.css";
 
 const BikeMessage = ({ bikeMessages, bike }) => {
-  let nomessages = false;
-  let noReply = true;
+  let noMessages = false;
+  const alert = useAlert()
   
   if (bikeMessages?.length === 0) {
-    nomessages = true;
-    noReply = false;
+    noMessages = true;
   }
 
+  const [messageId, setMessageId] = useState('');
   const [clickReply, setClickReply] = useState(false);
-  const [messageBody, setMessageBody] = useState("");
-  const [bikeId, setBikeId] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [addMessage, {error}] = useMutation(ADD_MESSAGE //, {
-  //   update(cache, { data: { addMessage } }) {
+  const [replyBody, setReplyBody] = useState("");
+  // const [bikeId, setBikeId] = useState('');
+
+  const [addReply, {error}] = useMutation(ADD_REPLY //, {
+  //   update(cache, { data: { addReply } }) {
   //     try {
-  //       const { bike } = cache.readQuery({ query: QUERY_BIKE_MESSAGES });
+  //       const { message } = cache.readQuery({ query: QUERY_MESSAGE });
   
   //       cache.writeQuery({
-  //         query: QUERY_BIKE_MESSAGES,
-  //         data: { bike: { messages: [...bike.messages, addMessage] } }
+  //         query: QUERY_MESSAGE,
+  //         data: { message: { replies: [...message.replies, addReply] } }
   //       });
 
   //       const { user } = cache.readQuery({ query: QUERY_USER });
@@ -40,46 +42,49 @@ const BikeMessage = ({ bikeMessages, bike }) => {
   // }
   );
 
-  function handleReply() {
+  function handleReply(event) {
     setClickReply(true);
+    // get messageId
+    const id = event.target.getAttribute('data-id');
+    setMessageId(id);
   }
 
   function handleChange(event) {
-    setMessageBody(event.target.value);
-    setBikeId(bike);
+    setReplyBody(event.target.value);
+    // setBikeId(bike);
   }
 
   async function handleFormSubmit(event) {
     event.preventDefault();
 
     try {
-      await addMessage({
-        variables: { bikeId, messageBody },
+      const reply = await addReply({
+        variables: { messageId, replyBody },
       });
 
-      setMessageBody("");
-      setBikeId("");
-      setSubmitted(true);
+      setReplyBody("");
+      // setBikeId("");
+
+      if (reply) {
+        alert.success(
+          "Messege Sent"
+        );
+
+        setClickReply(false);
+
+        // hide model
+        var bikeMessageEl = document.getElementById("bikemessage");
+        var dashboardEl = document.getElementById("dashboardcontainer");
+        var addbikebtnEl = document.getElementById("addbikebtn");
+        bikeMessageEl.classList.add("hidden");
+        dashboardEl.classList.remove("hidden", "pb-10");
+        addbikebtnEl.classList.remove("hidden");
+      }
     } catch (e) {
       console.error(e);
     }
   }
-
-  if (submitted === true) {
-    alert("Your message has been sent!");
-    setSubmitted(false);
-    setClickReply(false);
-    // window.location.reload(); // ideally find another way to refresh the messages without reloading
-
-    // hide model
-    var bikeMessageEl = document.getElementById("bikemessage");
-    var dashboardEl = document.getElementById("dashboardcontainer");
-    var addbikebtnEl = document.getElementById("addbikebtn");
-    bikeMessageEl.classList.add("hidden");
-    dashboardEl.classList.remove("hidden", "pb-10");
-    addbikebtnEl.classList.remove("hidden");
-  }
-
+  
   return (
     <div className="flex justify-center w-8/12 p-20 pb-0 pt-0 mt-1">
       <div className="justify-center inline-block addbikecontainer align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all  sm:align-middle sm:max-w-lg sm:w-full">
@@ -104,9 +109,16 @@ const BikeMessage = ({ bikeMessages, bike }) => {
         </div>
         <div className="bg-gray-200 content-between  p-6 itemcontainercomment shadow-md">
           <div className="flex-col justify-center mx-auto justify-items-center text-center">
+            {noMessages && (
+              <div className="bg-gray-200 p-6 pt-6 m-2 rounded-3xl pt-0  itemboxcomment my-3 shadow-md m-auto w-auto">
+                <div className="bg-gray-50 p-6 m-2 rounded-3xl mx-auto shadow-md w-full">
+                  There Are No Messages Yet! Don't Give Up Hope!
+                </div>
+              </div>
+            )}
             {bikeMessages &&
               bikeMessages.map(message => (
-                <div className="bg-gray-200 p-6 m-2 rounded-3xl pt-0 my-7 break-words itemboxcomment shadow-md m-auto w-auto">
+                  <div key={message._id} className="bg-gray-200 p-6 m-2 rounded-3xl pt-0 my-7 break-words itemboxcomment shadow-md m-auto w-auto">
                   <div className="flex justify-between mb-5">
                     <div className="message-username">{message.username}</div>
                     <div>{message.createdAt}</div>
@@ -115,18 +127,27 @@ const BikeMessage = ({ bikeMessages, bike }) => {
                     className="bg-gray-50 p-6 m-2 rounded-3xl mx-auto shadow-md w-full"
                     key={message._id}
                   >
-                    <div>{message.messageBody}</div>
+                      <div>{message.messageBody}</div>
                   </div>
+                  {message.replies.length ? (
+                    <div>
+                      {message.replies.map(reply => (
+                        <div key={reply._id} className="bg-gray-200 p-6 m-2 rounded-3xl pt-0 my-7 break-words itemboxcomment shadow-md m-auto w-auto">
+                          {reply.username} replied 
+                            <div className="bg-gray-50 p-6 m-2 rounded-3xl mx-auto shadow-md w-full">
+                              {reply.replyBody}
+                            </div>
+                            <div>on {reply.createdAt}</div>
+                        </div>))}
+                      </div>) : (<div></div>)}
+                    {clickReply ? (<></>) : (<button data-id={message._id} 
+                        className="rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+                        onClick={handleReply}>
+                          Reply
+                      </button>)}
                 </div>
               ))}
-            {nomessages && (
-              <div className="bg-gray-200 p-6 pt-6 m-2 rounded-3xl pt-0  itemboxcomment my-3 shadow-md m-auto w-auto">
-                <div className="bg-gray-50 p-6 m-2 rounded-3xl mx-auto shadow-md w-full">
-                  There Are No Messages Yet! Don't Give Up Hope!
-                </div>
-              </div>
-            )}
-            {clickReply ? (
+              {clickReply && (
                     <form onSubmit={handleFormSubmit}>
                     <div className="shadow overflow-hidden sm:rounded-md">
                       <div className="px-4 py-5 addbackground sm:p-6">
@@ -141,6 +162,7 @@ const BikeMessage = ({ bikeMessages, bike }) => {
                         </div>
                       </div>
                     </div>
+                    {error && <div className="dark:text-gray-300 text-sm text-gray-500">Something went wrong.. Please try again</div>}
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                       <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -149,13 +171,7 @@ const BikeMessage = ({ bikeMessages, bike }) => {
                         Submit
                       </button>
                     </div>
-                  </form>
-                  ) : (
-                    noReply && (<button className="rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
-                      onClick={handleReply}>
-                    Reply
-                  </button>)
-                  ) }
+                  </form>)}
           </div>
         </div>
       </div>

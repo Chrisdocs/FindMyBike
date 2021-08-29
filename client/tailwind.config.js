@@ -22,8 +22,9 @@ module.exports = {
   './src/pages/Tips.js',
   './src/pages/Message.js',
   '.src/pages/ViewMessage.js',
+  './src/pages/Success.js',
   //public-index.html
-  '../public/index.html'
+  './public/index.html'
 ],
   darkMode: 'media', // or 'media' or 'class', or false
   theme: {

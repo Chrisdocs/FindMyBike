@@ -1,10 +1,11 @@
 import React, { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useMutation } from "@apollo/client";
-import { QUERY_USER } from "../../utils/queries";
+// import { QUERY_USER } from "../../utils/queries";
 import { UPDATE_BIKE, UPDATE_STATUS } from "../../utils/mutations";
+import { useAlert } from 'react-alert';
 import FileBase64 from "react-file-base64";
-import gql from "graphql-tag";
+// import gql from "graphql-tag";
 import "../../assets/styles/editbike.css";
 
 const EditBike = ({
@@ -64,7 +65,7 @@ const EditBike = ({
   //   ],
   // });
 
-  const [updateBike] = useMutation(UPDATE_BIKE);
+  const [updateBike, { error }] = useMutation(UPDATE_BIKE);
   const [updateStatus] = useMutation(UPDATE_STATUS);
 
   // update state based on form input changes
@@ -91,6 +92,8 @@ const EditBike = ({
       location,
     });
   };
+
+  const alert = useAlert()
   // submit form,  pass the data from the form state object as variables for our addUser mutation function
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -106,27 +109,14 @@ const EditBike = ({
       const bikeId = data?.updateBike._id;
       setBikeStatus(bikeId, statusState.isLost, statusState.location);
 
-      // setFormState({
-      //   bikeId: "",
-      //   brand: "",
-      //   bike_model: "",
-      //   year: "",
-      //   serial: "",
-      //   description: "",
-      //   image: "",
-      // });
-      // setStatusState({
-      //   location: "",
-      //   isLost: "",
-      // });
-
       console.log("form from addBike:", data);
+
       window.location.reload();
     } catch (e) {
       console.error(e);
       // window.location.reload();
-      window.alert(
-        "There was an error with adding your bike. Please make sure bike image is not larger than 64 KB."
+      alert.error(
+        "Error editing bike Image too large"
       );
     }
   };
@@ -349,6 +339,7 @@ const EditBike = ({
                       </div>
                       <div className="px-4 py-3 bg-gray-50 dark:bg-gray-600 text-right sm:px-6"></div>
                     </div>
+                    {error && <div>Something went wrong.. Please try again.</div>}
                     <div className="bg-gray-50 dark:bg-gray-700 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                       <button
                         type="submit"

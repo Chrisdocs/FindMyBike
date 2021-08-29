@@ -1,4 +1,7 @@
-const { Schema } = require("mongoose");
+const mongoose = require("mongoose");
+
+const { Schema, model } = mongoose;
+const replySchema = require("./Reply");
 const dateFormat = require("../utils/dateFormat");
 
 const messageSchema = new Schema(
@@ -17,6 +20,7 @@ const messageSchema = new Schema(
             default: Date.now,
             get: (timestamp) => dateFormat(timestamp),
         },
+        replies: [replySchema]
     },
     {
         toJSON: {
@@ -25,4 +29,10 @@ const messageSchema = new Schema(
     }
 );
 
-module.exports = messageSchema;
+messageSchema.virtual('replyCount').get(function() {
+    return this.replies.length;
+});
+
+const Message = model('Message', messageSchema);
+
+module.exports = Message;

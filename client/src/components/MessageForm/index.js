@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_MESSAGE } from "../../utils/mutations";
 import { Redirect } from "react-router-dom";
+import { useAlert } from 'react-alert';
 
 
 const MessageForm = () => {
@@ -9,6 +10,7 @@ const MessageForm = () => {
   const [addMessage, { error }] = useMutation(ADD_MESSAGE);
   const [bikeId, setBikeId] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const alert = useAlert()
 
   let currentIdUrl = window.location.hash.split("/").splice(2).toString();
 
@@ -21,20 +23,27 @@ const MessageForm = () => {
     event.preventDefault();
 
     try {
-      await addMessage({
+      const message = await addMessage({
         variables: { bikeId, messageBody },
       });
 
       setMessageBody("");
       setBikeId("");
+
+      if (message) {
+        alert.success(
+          "Messege Sent"
+        );
+      }
+      
       setSubmitted(true);
+
     } catch (e) {
       console.error(e);
     }
   }
 
   if (submitted === true) {
-    alert("Your message has been sent!");
     return <Redirect to="/Search" />;
   }
 
@@ -83,6 +92,7 @@ const MessageForm = () => {
                 </div>
               </div>
             </div>
+            {error && <div className="dark:text-gray-300 text-sm text-gray-500">Message is required. Please try again</div>}
             <div className="dark:bg-gray-500 bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

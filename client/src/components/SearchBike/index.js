@@ -10,6 +10,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Message from "../../pages/Message.js";
 import { QUERY_LOST_BIKES } from "../../utils/queries.js";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup } from "pure-react-carousel";
+import "pure-react-carousel/dist/react-carousel.es.css";
 
 const SearchBike = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -122,12 +124,27 @@ const SearchBike = () => {
         ) : (
           <div className="pt-20">
           {searchedBikes.length ? (
+            <CarouselProvider
+            naturalSlideWidth={80}
+            naturalSlideHeight={120}
+            totalSlides={searchedBikes?.length}
+            orientation={"horizontal"}
+            step={1}
+            dragStep={1}
+            visibleSlides={2}
+            isIntrinsicHeight={true}
+            // infinite={true}
+            // isPlaying={true}
+            // interval={5000}
+          >
             <div className="pb-20 flex flex-wrap  justify-center visible">
-              {searchedBikes.map(bike => {
+              <Slider>
+              {searchedBikes.map((bike, i) => {
                 return (
-                  <div
-                  key={bike._id}
-                  className="bg-gray-300 dark:bg-gray-600 p-6 itembox m-2 rounded-3xl shadow-2xl max-w-lg col-container"
+                  <div>
+                  <Slide index={i}
+                  key={bike._id}>
+                  <div className="bg-gray-300 dark:bg-gray-600 p-6 itembox m-2 rounded-3xl shadow-2xl max-w-lg col-container"
                   >
                     <div className="bg-gray-600 dark:bg-gray-800 rounded-3xl">
 
@@ -184,11 +201,20 @@ const SearchBike = () => {
                       </HashRouter>
                     </div>
                 </div>
-                  </div>
+                </div>
+                </Slide>
+                </div>
                 );
                 // }
               })}
+              </Slider>
             </div>
+            <ButtonBack className="rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                Back</ButtonBack>
+            <ButtonNext className="rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                Next</ButtonNext>
+           <DotGroup />
+          </CarouselProvider>
           ) : clickSearch ? (
             <div>There are no missing bikes reported in this area</div>
             ) : (

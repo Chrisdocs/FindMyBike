@@ -32,9 +32,13 @@ const Nav = () => {
                     <li className="main-nav dark:text-gray-200">
                         <NavLink exact to="/" activeClassName="current-nav" className="nav-link" replace>Home</NavLink>
                     </li>
+                    {Auth.loggedIn() ? (
                     <li className="main-nav dark:text-gray-200"> 
                         <NavLink exact to="/Dashboard" activeClassName="current-nav" className="nav-link" replace>Dashboard</NavLink>
                     </li>
+                    ) : (
+                        <></>
+                    )}
                     <li className="main-nav dark:text-gray-200">
                         <NavLink exact to="/Search" activeClassName="current-nav" className="nav-link" replace>Search</NavLink>
                     </li>

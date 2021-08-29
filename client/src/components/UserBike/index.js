@@ -29,7 +29,7 @@ const UserBike = () => {
 
     useEffect(() => {
         setBikeState(bikes);
-    });
+    }, [bikes]);
 
     const [deleteBike, { error }] = useMutation(DELETE_BIKE);
 
@@ -52,6 +52,17 @@ const UserBike = () => {
       items: 1,
     },
   };
+
+  function getMessageCount(messageCount, messageArray) {
+    // map through messages to collect all reply counts
+    const replies = messageArray.map(message => message.replyCount);    
+    const replyTotal = replies.reduce(function(prev, sum) { return prev + sum }, 0);
+
+    // total messages + replies on bike
+    const total = messageCount + replyTotal;
+
+    return ` (${total})`;
+  }
 
   function handleMessagesClick(e) {
     e.preventDefault();
@@ -81,18 +92,18 @@ const UserBike = () => {
     addbikebtnEl.classList.remove("hidden");
   }
 
-  function handleEditClick(e) {
-    e.preventDefault();
-    console.log("clicked edit!");
+  // function handleEditClick(e) {
+  //   e.preventDefault();
+  //   console.log("clicked edit!");
 
-    // get bike id
-    const bikeId = e.target.getAttribute("data-bike-id");
-  }
+  //   // get bike id
+  //   const bikeId = e.target.getAttribute("data-bike-id");
+  // }
 
   const handleDeleteClick = async bikeId => {
     //  e.preventDefault();
-    console.log("clicked delete!");
-    console.log("This is the bikeID: " + bikeId);
+    // console.log("clicked delete!");
+    // console.log("This is the bikeID: " + bikeId);
     try {
       await deleteBike({
         variables: { bikeId },
@@ -163,7 +174,7 @@ const UserBike = () => {
                     className="rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={handleMessagesClick}
                   >
-                    Messages {bike.messages.length ? ` (${bike.messages.length})` : ''}
+                    Messages {bike.messages.length ? getMessageCount(bike.messages.length, bike.messages) : ''}
                   </button>
                   <button
                     data-bike-id={bike._id}
@@ -172,6 +183,7 @@ const UserBike = () => {
                   >
                     Delete
                   </button>
+                  {error && <div className="dark:text-gray-300 text-sm text-gray-500">Something went wrong.. Please try deleting again</div>}
                 </div>
               </div>
             </div>

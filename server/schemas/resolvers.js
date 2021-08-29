@@ -1,7 +1,8 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Bike } = require("../models");
+const { User, Bike, Message } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
+const bcrypt = require('bcrypt');
 
 const resolvers = {
     Query: {
@@ -11,8 +12,8 @@ const resolvers = {
         user: async (parent, args, context) => {
             if (context.user) {
                 const user = await User.findById(context.user._id)
-                    .select("-__v -password")
-                    .populate("bikes");
+                    .select("-__v")
+                    .populate({path: "bikes", populate: {path: "messages"}});
                 return user;
             }
             throw new AuthenticationError("Not logged in");
@@ -73,7 +74,19 @@ const resolvers = {
             return { session: session.id };
         },
         bike: async ( parent, { _id }) => {
-            return Bike.findOne({ _id });
+            return Bike.findOne({ _id }).populate('message');
+        },
+        userMessages: async (parent, args, context) => {
+            if (context.user) {
+                const messages = await Message.find({username: context.user.username});
+                return messages;
+            }
+        },
+        message: async (parent, { messageId }, context) => {
+            if (context.user) {
+                const message = await Message.findOne({ _id: messageId});
+                return message;
+            }
         }
     },
     Mutation: {
@@ -165,27 +178,28 @@ const resolvers = {
         },
         updateUser: async (parent, args, context) => {
             if (context.user) {
-                return await User.findByIdAndUpdate(context.user._id, args, {
-                    new: true,
-                });
+                const saltRounds = 10;
+                const updatedPassword = await bcrypt.hash(args.password, saltRounds);
+
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { password: updatedPassword },
+                    { new: true }
+                );
+
+                return updatedUser;
             }
 
             throw new AuthenticationError("Not logged in");
         },
         addMessage: async (parent, { bikeId, messageBody }, context) => {
             if (context.user) {
+                const message = await Message.create({ messageBody, username: context.user.username });
                 const updatedBike = await Bike.findOneAndUpdate(
                     { _id: bikeId },
-                    {
-                        $push: {
-                            messages: {
-                                messageBody,
-                                username: context.user.username,
-                            },
-                        },
-                    },
+                    { $push: { messages: message._id } },
                     { new: true, runValidators: true }
-                );
+                ).populate('messages');
 
                 return updatedBike;
             }
@@ -208,7 +222,34 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        
+        deleteMessage: async (parent, { bikeId, messageId }, context) => {
+            if (context.user) {
+                Message.findOneAndDelete({ _id: messageId }, function(err, docs) {
+                    if (err) {
+                        console.log("delete err", err);
+                    } else {
+                        console.log("deleted message", messageId);
+                    }
+                });
+
+                const updatedBike = await Bike.findOneAndUpdate(
+                    { _id: bikeId },
+                    { $pull: { messages: messageId } },
+                    { new: true }
+                )
+            }
+        },
+        addReply: async (parent, { messageId, replyBody }, context) => {
+            if (context.user) {
+                const updatedMessage = await Message.findOneAndUpdate(
+                    { _id: messageId },
+                    { $push: { replies: { replyBody, username: context.user.username } } },
+                    { new: true}
+                ).populate('replies');
+
+                return updatedMessage;
+            }
+        }        
     },
 };
 

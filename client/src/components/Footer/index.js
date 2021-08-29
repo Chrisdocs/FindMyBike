@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
 import "../../assets/styles/footer.css";
 import { QUERY_CHECKOUT } from "../../utils/queries";
@@ -23,7 +23,6 @@ const Footer = () => {
     return (
         <div className=" footer-section">
             <footer className="footer-text dark:text-gray-400">
-                <div>&copy; 2021 by UTA Coding Bootcamp Group 1</div>
                 <div>
                     <div className="product">
                         <div className="description">
@@ -42,6 +41,7 @@ const Footer = () => {
                         Donate
                     </button>
                 </div>
+                <div>&copy; 2021 by UTA Coding Bootcamp Group 1</div>
             </footer>
         </div>
     );

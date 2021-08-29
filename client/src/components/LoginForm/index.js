@@ -76,7 +76,7 @@ const LoginForm = props => {
                 {error && <div>Login failed</div>}
                 <HashRouter>
                 <div className="flex justify-center">
-                    <p className="pt-2 pr-6">Not a member?</p>
+                    <p className="pt-2 pr-6 dark:text-gray-300">Not a member?</p>
                     <NavLink exact to="/Signup" activeClassName="current-nav" className="nav-link" replace>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
                         type="submit">
