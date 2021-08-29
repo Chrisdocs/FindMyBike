@@ -1,12 +1,3 @@
-// import React, { Fragment, useRef, useState } from "react";
-// import { Dialog, Transition } from "@headlessui/react";
-// import { useMutation } from "@apollo/client";
-// // import { QUERY_USER } from "../../utils/queries";
-// import { UPDATE_BIKE, UPDATE_STATUS } from "../../utils/mutations";
-// import { useAlert } from 'react-alert';
-// import FileBase64 from "react-file-base64";
-// import gql from "graphql-tag";
-//import "../../assets/styles/editbike.css";
 import React, { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useQuery } from "@apollo/client";
