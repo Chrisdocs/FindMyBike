@@ -16,4 +16,7 @@
   .formbox {
     padding: 0;
   }
+  .cancel {
+    margin: 7px;
+  }
 }
