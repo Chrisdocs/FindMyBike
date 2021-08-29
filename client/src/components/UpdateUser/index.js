@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { useMutation } from "@apollo/client";
 import { UPDATE_USER } from "../../utils/mutations";
 import { useAlert } from "react-alert";
+import "../../assets/styles/updateUser.css";
 
 const UpdateUserForm = () => {
   const [open, setOpen] = useState(false);
@@ -82,7 +83,7 @@ const UpdateUserForm = () => {
               <div className="inline-block addbikecontainer align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full dark:bg-gray-600">
                 <div className="mt-5 md:mt-0 md:col-span-2">
                   <div className="">
-                    <div className="flex p-20 justify-center">
+                    <div className="formbox flex p-20 justify-center">
                       <div className="w-full max-w-xs">
                         <form
                           className="bg-white dark:bg-gray-500 shadow-md rounded px-8 pt-6 pb-8 mb-4"
