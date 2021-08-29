@@ -7,3 +7,13 @@
 .backButton {
   margin-left: 340px;
 }
+
+.borderReply {
+  border-width: 1px;
+  border-color: darkgreen;
+  margin: 5px;
+}
+
+.replyMargin {
+  margin-left: 5px;
+}

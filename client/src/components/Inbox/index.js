@@ -95,9 +95,11 @@ const Inbox = () => {
                     <div className="replies mt-5 md:mt-0 md:col-span-2">
                       {messagesWithReplies &&
                         messagesWithReplies.map((message) => (
-                          <div key={message._id}>
-                            <div>You wrote: {message.messageBody}</div>
-                            <div>
+                          <div key={message._id} className="borderReply">
+                            <div className="replyMargin">
+                              You wrote: {message.messageBody}
+                            </div>
+                            <div className="replyMargin">
                               {message.replies.map((reply) => (
                                 <div key={reply._id}>
                                   <div>
