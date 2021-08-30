@@ -10,6 +10,7 @@ import "../../assets/styles/addbike.css";
 const AddBike = () => {
   const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);
+  const [characterCount, setCharacterCount] = useState(0);
 
   // create a new bike
   const [formState, setFormState] = useState({
@@ -33,10 +34,16 @@ const AddBike = () => {
   // update state based on form input changes
   const handleChange = event => {
     const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+
+    if (formState.description.length <= 280) {
+      setCharacterCount(event.target.value.length);
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
+    } else {
+      return '';
+    }
   };
   const handleChangeStatus = event => {
     let isLost;
@@ -78,6 +85,7 @@ const AddBike = () => {
         location: "",
         isLost: "",
       });
+      setCharacterCount(0);
 
       window.location.reload();
     } catch (e) {
@@ -279,7 +287,10 @@ const AddBike = () => {
                               htmlFor="description"
                               className="block text-sm font-medium text-gray-700"
                             >
-                              Description
+                              <p className={`m-0 ${characterCount === 280 ? 'text-error' : ''}`}>
+                                  Character Count: {characterCount}/280
+                                  {error && <span className="ml-2">Something went wrong...</span>}
+                              </p>
                             </label>
                             <input
                               type="text"
