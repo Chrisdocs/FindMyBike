@@ -8,11 +8,10 @@ ul {
 }
 
 .main-nav {
-    font-size: 1.2em;
+    font-size: 1em;
     line-height: 40px;
     height: 40px;
-    display: inline;
-    padding: 10px;
+    display: inline-block;
 }
 
 #logout,
@@ -49,28 +48,9 @@ ul {
     text-decoration: underline;
     text-decoration-thickness: 4px;
     text-decoration-color: rgb(255, 187, 40);
+    display: inline-block;
 }
 
-.subnav {
-    overflow: hidden;
-}
-
-/* Subnav button */
-.subnav .subnavbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-}
-
-/* Add a red background color to navigation links on hover */
-.navbar span:hover,
-.subnav:hover .subnavbtn {
-    background-color: lightcyan;
-}
 
 .subnav-content {
     display: none;
@@ -78,8 +58,10 @@ ul {
     left: 30%;
     width: 100%;
     z-index: 1;
+    overflow: hidden;
 }
-/* Style the subnav links */
+
+/* Style the mobile subnav links */
 .subnav-content span {
     float: left;
     text-decoration: none;
@@ -90,10 +72,23 @@ ul {
 .subnav-content span:hover {
     color: blue;
 }
-
 /* When you move the mouse over the subnav container, open the subnav content */
 .subnav:hover .subnav-content {
     display: block;
+}
+
+.dropdown-container {
+    display: none;
+    padding-left: 8px;
+}
+
+.dropdown-btn {
+    display: block;
+}
+
+.active {
+    background-color: green;
+    color: white;
 }
 
 .nav-section i {

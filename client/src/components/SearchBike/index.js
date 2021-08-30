@@ -148,7 +148,7 @@ const SearchBike = () => {
                                 orientation={"horizontal"}
                                 // step={1}
                                 // dragStep={1}
-                                visibleSlides={2}
+                                visibleSlides={1}
                                 isIntrinsicHeight={true}
                                 // infinite={true}
                                 // isPlaying={true}

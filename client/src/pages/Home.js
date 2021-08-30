@@ -4,12 +4,12 @@ import '../assets/styles/home.css';
 const Home = () => {
 
     return (
-        <div className="sm:m-0 home-container">
+        <div className="text-center md:m-24">
             <div>
                 <h2 className="welcome-title"><span className="dark:text-gray-200">Welcome to BikeSleuth!</span></h2>
             </div>
             <div className="pt-4">
-                <p className="welcome-text dark:text-gray-200">BikeSleuth is designed to quickly reunite a rider and their missing bicycle. With this app, you are able to upload your bicycle information at any time and in the event the bike becomes lost or stolen, you can update your bike's status as missing and your bike will be automatically added to our search page allowing other users in your area to keep an eye out for your missing bicycle. </p>
+                <p className="welcome-text dark:text-gray-200 md:w-8/12">BikeSleuth is designed to quickly reunite a rider and their missing bicycle. With this app, you are able to upload your bicycle information at any time and in the event the bike becomes lost or stolen, you can update your bike's status as missing and your bike will be automatically added to our search page allowing other users in your area to keep an eye out for your missing bicycle. </p>
             </div>
             <div>
             <h4 className="how-to"><span className="dark:text-gray-200">How Does It Work!?</span></h4>
