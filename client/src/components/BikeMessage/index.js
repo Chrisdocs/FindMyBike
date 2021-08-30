@@ -162,7 +162,7 @@ const BikeMessage = ({ bikeMessages, bike }) => {
                         </div>
                       </div>
                     </div>
-                    {error && <div className="dark:text-gray-300 text-sm text-gray-500">Something went wrong.. Please try again</div>}
+                    {error && <div className="dark:text-red-300 text-sm text-red-500">Something went wrong.. Please try again</div>}
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                       <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

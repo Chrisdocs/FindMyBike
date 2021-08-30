@@ -30,44 +30,21 @@ const SearchBike = () => {
     // use a ternary operator to check if bike data is present (loaded)
     const lostBikes = loading ? [] : data.lostBikes;
 
-    console.log("These are your lost bikes: ", lostBikes);
-
     const [searchedBikes, setSearchedBikes] = useState([]);
 
     const [clickSearch, setClickSearch] = useState(false);
 
-    // const responsive = {
-    //     superLargeDesktop: {
-    //         // the naming can be any, depends on you.
-    //         breakpoint: { max: 4000, min: 3000 },
-    //         items: 5,
-    //     },
-    //     desktop: {
-    //         breakpoint: { max: 3000, min: 1024 },
-    //         items: 3,
-    //     },
-    //     tablet: {
-    //         breakpoint: { max: 1024, min: 464 },
-    //         items: 2,
-    //     },
-    //     mobile: {
-    //         breakpoint: { max: 464, min: 0 },
-    //         items: 1,
-    //     },
-    // };
-
     const handleSearchSubmit = async (event) => {
         event.preventDefault();
-        // console.log("clicked")
         setClickSearch(true);
 
         function findLostBikes(arr, query) {
-            console.log("this is your array: ", arr);
-            console.log("You searched for: ", query);
+            // console.log("this is your array: ", arr);
+            // console.log("You searched for: ", query);
             return arr.filter((bikes, index) => {
                 index = +0;
                 if (bikes.status[index].location === query) {
-                    console.log(bikes);
+                    // console.log(bikes);
                     return bikes;
                 }
             });
@@ -75,20 +52,11 @@ const SearchBike = () => {
 
         try {
             const response = await findLostBikes(lostBikes, searchInput);
-            console.log("This is your response: ", response);
+            // console.log("This is your response: ", response);
 
             if (!response) {
                 throw new Error("Something went wrong!");
             }
-
-            // const bikeData = response.map((bike) => ({
-            //     bikeId: bike._id,
-            //     brand: bike.brand,
-            //     description: bike.description,
-            //     image: bike.image,
-            //     serial: bike.serial,
-            //     status: bike.status,
-            // }));
 
             setSearchedBikes(response);
             setSearchInput("");
@@ -97,8 +65,13 @@ const SearchBike = () => {
         }
     };
 
-    const slidesNumber = searchedBikes?.length;
-    console.log("number of slides:", slidesNumber);
+    let slidesNumber = searchedBikes?.length;
+    if (slidesNumber > 2) {
+        slidesNumber = slidesNumber - 2;
+    }
+    else if (slidesNumber === 2) {
+        slidesNumber = 1;
+    }
 
     return (
         <>
@@ -125,11 +98,6 @@ const SearchBike = () => {
                     </button>
                 </form>
 
-                {console.log(
-                    "searchedBikes",
-                    searchedBikes.length ? true : false
-                )}
-
                 {!clickSearch ? (
                     <div className="text-center pt-20">
                         <h2 className="dark:text-gray-300">Hey There!</h2>
@@ -142,15 +110,15 @@ const SearchBike = () => {
                     <div className="pt-20">
                         {searchedBikes.length ? (
                             <CarouselProvider
-                                naturalSlideWidth={60}
-                                naturalSlideHeight={60}
+                                naturalSlideWidth={30}
+                                naturalSlideHeight={30}
                                 totalSlides={slidesNumber}
                                 orientation={"horizontal"}
                                 // step={1}
                                 // dragStep={1}
                                 visibleSlides={1}
                                 isIntrinsicHeight={true}
-                                // infinite={true}
+                                infinite={true}
                                 // isPlaying={true}
                                 // interval={5000}
                             >
