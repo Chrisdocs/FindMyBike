@@ -68,8 +68,8 @@ const SearchBike = () => {
                 index = +0;
                 if (bikes.status[index].location === query) {
                     console.log(bikes);
+                    return bikes;
                 }
-                return bikes;
             });
         }
 
@@ -97,7 +97,7 @@ const SearchBike = () => {
         }
     };
 
-    const slidesNumber = searchedBikes?.length - 2;
+    const slidesNumber = searchedBikes?.length;
     console.log("number of slides:", slidesNumber);
 
     return (
@@ -163,9 +163,9 @@ const SearchBike = () => {
                                                         index={i}
                                                         key={bike._id}
                                                     >
-                                                        <div className="bg-gray-300 dark:bg-gray-600 p-6 itembox m-2 rounded-3xl shadow-2xl max-w-lg col-container">
+                                                        <div className="bg-gray-300 dark:bg-gray-600 p-6 itembox m-2 rounded-3xl shadow-2xl max-w-lg h-full w-150">
                                                             {/* <div className="h-full object-fill"> */}
-                                                                <div className="bg-gray-600 dark:bg-gray-800 rounded-3xl ">
+                                                                <div className="bg-gray-600 dark:bg-gray-800 rounded-3xl">
                                                                     {bike.image ? (
                                                                         <img
                                                                             className="object-cover rounded-3xl h-full w-full p-1"
