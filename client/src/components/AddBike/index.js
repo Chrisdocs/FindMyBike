@@ -56,7 +56,6 @@ const AddBike = () => {
   const handleFormSubmit = async event => {
     event.preventDefault();
 
-    console.log(statusState);
     // use try/catch instead of promises to handle errors
     try {
       // execute addBike mutation and pass in variable data from form
@@ -80,7 +79,6 @@ const AddBike = () => {
         isLost: "",
       });
 
-      console.log("form from addBike:", data);
       window.location.reload();
     } catch (e) {
       console.error(e);

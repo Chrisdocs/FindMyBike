@@ -68,8 +68,8 @@ const SearchBike = () => {
                 index = +0;
                 if (bikes.status[index].location === query) {
                     console.log(bikes);
-                    return bikes;
                 }
+                return bikes;
             });
         }
 

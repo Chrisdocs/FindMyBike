@@ -11,13 +11,13 @@ const Inbox = () => {
   // array of all messages user has posted on bikes
   const { data } = useQuery(QUERY_MESSAGES_FROM_USER);
   const messageArray = data?.userMessages;
-  console.log("messagesSent:", messageArray);
+
 
   // filter only messages with replies to add to dashboard inbox
   const messagesWithReplies = messageArray?.filter(
     (message) => message.replyCount > 0
   );
-  console.log("replied messages: ", messagesWithReplies);
+
 
   // set inbox count
   const count = messagesWithReplies?.length;

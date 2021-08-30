@@ -56,25 +56,25 @@ useEffect(() => {
         <HashRouter>
             
             <div>
-                <nav class="md:hidden bg-white shadow-lg">
-                    <div class="max-w-6xl mx-auto px-4">
-                        <div class="flex justify-between">
-                        <div class="flex space-x-7">
+                <nav className="md:hidden bg-white dark: bg-gray-600 shadow-lg">
+                    <div className="max-w-6xl mx-auto px-4">
+                        <div className="flex justify-between">
+                        <div className="flex space-x-7">
 						<div>
-							<a href="#" class="flex items-center py-4 px-2">
-								<span class="font-semibold text-gray-500 text-lg">Navigation</span>
+							<a href="/#" className="flex items-center py-4 px-2">
+								<span className="font-semibold text-gray-500 dark:text-gray-400 text-lg">Navigation</span>
 							</a>
 						</div>
 						
 					</div>
-                            <div class="md:hidden flex items-center">
-                                <button class="outline-none mobile-menu-button">
-                                    <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
+                            <div className="md:hidden flex items-center">
+                                <button className="outline-none mobile-menu-button">
+                                    <svg className=" w-6 h-6 text-gray-500 hover:text-green-500 "
                                         x-show="!showMenu"
                                         fill="none"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
                                     >
@@ -84,13 +84,13 @@ useEffect(() => {
                             </div>
                         </div>
                     </div>
-                    <div class="md:hidden mobile-menu">
-                            <ul class="">
+                    <div className="md:hidden mobile-menu">
+                            <ul className="">
                                 <li><NavLink
                                 exact
                                 to="/"
                                 activeClassName=""
-                                className="block text-sm px-2 py-4 transition duration-300"
+                                className="block text-sm px-2 py-4 transition duration-300 dark:text-gray-300"
                                 replace
                             >
                                 Home
@@ -100,12 +100,12 @@ useEffect(() => {
                                 exact
                                 to="/Dashboard"
                                 activeClassName="dropdown-btn"
-                                className="block justify-center text-sm px-2 py-4 transition duration-300 dropdown-btn"
+                                className="block justify-center text-sm px-2 py-4 transition duration-300 dropdown-btn dark:text-gray-300"
                                 replace
                             >
                                 Dashboard
-                                <i class="fa fa-caret-down"></i>
-                                        <div class="dropdown-container">
+                                <i className="fa fa-caret-down"></i>
+                                        <div className="dropdown-container">
                                         <span><AddBike /></span>
                                         <span><Inbox /></span>
                                         <span><UpdateUserForm /></span>
@@ -119,7 +119,7 @@ useEffect(() => {
                                 exact
                                 to="/Search"
                                 activeClassName=""
-                                className="block text-sm px-2 py-4 transition duration-300"
+                                className="block text-sm px-2 py-4 transition duration-300 dark:text-gray-300"
                                 replace
                             >
                                 Search
@@ -129,7 +129,7 @@ useEffect(() => {
                                 exact
                                 to="/Tips"
                                 activeClassName=""
-                                className="block text-sm px-2 py-4 transition duration-300"
+                                className="block text-sm px-2 py-4 transition duration-300 dark:text-gray-300"
                                 replace
                             >
                                 Tips
@@ -138,7 +138,7 @@ useEffect(() => {
                             {Auth.loggedIn() ? (
                             <>
                                 <li  id="login-out"
-                                    className="block text-sm px-2 py-4 transition duration-300"
+                                    className="block text-sm px-2 py-4 transition duration-300 dark:text-gray-300"
                                     onClick={Auth.logout}
                                 >
                                     Sign Out</li>
@@ -148,7 +148,7 @@ useEffect(() => {
                                 exact
                                 to="/Login"
                                 activeClassName=""
-                                className="block text-sm px-2 py-4 transition duration-300"
+                                className="block text-sm px-2 py-4 transition duration-300 dark:text-gray-300"
                                 replace
                             >
                                 Sign In
