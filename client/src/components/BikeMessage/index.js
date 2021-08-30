@@ -67,7 +67,7 @@ const BikeMessage = ({ bikeMessages, bike }) => {
 
       if (reply) {
         alert.success(
-          "Messege Sent"
+          "Message Sent"
         );
 
         setClickReply(false);
