@@ -1,6 +1,14 @@
 # BikeSleuth
 
 ## Description
+BikeSleuth provides users the ability to log their bike's information so that they can report it if it gets lost or stolen. 
+BikeSleuth functionality includes:
+-Home page (intro description of BikeSleuth)
+-Sign Up & Login Pages
+-User Dashboard (see all user bikes, see all user messages, add bike, edit bike, delete bike, user inbox, reply to messages, update user account information)
+-Search lost bikes by city
+-Helpful Tips Page 
+-Donate to BikeSleuth Page
 
 ## Table of Contents
 * [User Story](#User-Story)
