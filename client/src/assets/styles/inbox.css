@@ -1,0 +1,39 @@
+/* src/assets/styles/inbox.css */
+
+.replies {
+  margin-bottom: 10px;
+}
+
+.backButton {
+  margin-left: 340px;
+  margin-top: 5px;
+}
+
+.borderReply {
+  border-width: 2px;
+  border-color: darkgreen;
+  margin: 5px;
+}
+
+.replyMargin {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1024px) {
+  * {
+    font-size: large;
+  }
+  .backButton {
+    margin-left: 380px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  * {
+    font-size: small;
+  }
+  .backButton {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,15 @@
+@media only screen and (max-width: 600px) {
+  * {
+    font-size: small;
+  }
+  .formbox {
+    padding: 0;
+  }
+  .cancel {
+    margin: 7px;
+  }
+}
+
+.updateuserbg {
+  background-color: rgb(229, 231, 235);
+}
