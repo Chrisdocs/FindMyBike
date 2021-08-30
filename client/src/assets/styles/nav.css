@@ -93,3 +93,13 @@ ul {
 .nav-section i {
   margin-left: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+  /* * {
+    font-size: small;
+  } */
+  .dropdown-container {
+    display: flex !important;
+    justify-content: space-evenly;
+  }
+}
