@@ -97,7 +97,7 @@ const SearchBike = () => {
         }
     };
 
-    const slidesNumber = searchedBikes?.length - 2;
+    const slidesNumber = searchedBikes?.length;
     console.log("number of slides:", slidesNumber);
 
     return (
