@@ -1,5 +1,8 @@
 # BikeSleuth
 
+## Deployed Link
+https://bikesleuth.herokuapp.com/#/
+
 ## Description
 BikeSleuth provides users the ability to log their bike's information so that they can report it if it gets lost or stolen. 
  
