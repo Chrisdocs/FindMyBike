@@ -2,6 +2,7 @@
 
 ## Description
 BikeSleuth provides users the ability to log their bike's information so that they can report it if it gets lost or stolen. 
+ 
 BikeSleuth functionality includes:
 - Home page (intro description of BikeSleuth)
 - Sign Up & Login Pages
