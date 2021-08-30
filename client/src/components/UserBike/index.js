@@ -91,7 +91,7 @@ const UserBike = () => {
             <div className="bg-gray-600 dark:bg-gray-800 cardimage rounded-3xl">
               {bike.image ? (
                 <img
-                  className="object-cover rounded-3xl img-size p-1"
+                  className="object-cover rounded-3xl img-size p-1 w-full"
                   src={bike.image}
                   alt="the users bike"
                 />
