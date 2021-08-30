@@ -288,7 +288,7 @@ const AddBike = () => {
                               className="block text-sm font-medium text-gray-700"
                             >
                               <p className={`m-0 ${characterCount === 280 ? 'text-error' : ''}`}>
-                                  Character Count: {characterCount}/280
+                                  Description:
                                   {error && <span className="ml-2">Something went wrong...</span>}
                               </p>
                             </label>
