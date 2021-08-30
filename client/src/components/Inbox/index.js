@@ -67,8 +67,8 @@ const Inbox = () => {
                 <div className=" addheadercontainer px-4 pt-5 pb-4 sm:p-6 sm:pb-4 dark:bg-gray-600">
                   <div className="sm:flex sm:items-start">
                     <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <span role="img" aria-label="bike Emoji">
-                        🚴
+                      <span role="img" aria-label="message Emoji">
+                        ✉️
                       </span>
                     </div>
                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -86,18 +86,24 @@ const Inbox = () => {
                     <div className="replies mt-5 md:mt-0 md:col-span-2">
                       {messagesWithReplies &&
                         messagesWithReplies.map((message) => (
-                          <div key={message._id} className="borderReply">
-                            <div className="replyMargin">
-                              You wrote: {message.messageBody}
+                          <div key={message._id} className="borderReply bg-blue-200 rounded-xl dark:bg-blue-400">
+                            <div className="replyMargin p-1">
+                              You wrote on{" "} 
+                              {message.createdAt}:
                             </div>
-                            <div className="replyMargin">
+                            <div className="p-2 bg-blue-100 dark:bg-blue-200 rounded-xl">
+                                {message.messageBody}
+                            </div>
+                            <div>
                               {message.replies.map((reply) => (
                                 <div key={reply._id}>
-                                  <div>
+                                  <div className="replyMargin p-1 bg-blue-200 rounded-xl dark:bg-blue-400">
                                     {reply.username} replied on{" "}
                                     {reply.createdAt}:
                                   </div>
-                                  <div>{reply.replyBody}</div>
+                                  <div className="p-2 bg-blue-100 dark:bg-blue-200 rounded-xl">
+                                      {reply.replyBody}
+                                  </div>
                                 </div>
                               ))}
                               {/*Add reply button or have them click the message div to open up a chat/message modal display*/}
