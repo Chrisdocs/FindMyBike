@@ -49,7 +49,7 @@ const Tips = () => {
         <div className="md:flex">
           <div className="p-8">
             <p className="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-300 underline">Take pictures of your bike</p>
-            <p className="mt-2 text-gray-500 dark:text-gray-400">Pictures of both sides of your bike and the picture of the bottom bracket, showing the serial number. You can log this information on your dashbord</p>
+            <p className="mt-2 text-gray-500 dark:text-gray-400">Pictures of both sides of your bike and the picture of the bottom bracket, showing the serial number. You can log this information on your dashboard</p>
           </div>
           <div className="md:flex-shrink-0">
             <img className="object-contain h-48 w-full md:w-58" src={serialNumber} alt="How to locate your serial number" />
