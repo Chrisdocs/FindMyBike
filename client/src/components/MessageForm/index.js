@@ -47,6 +47,10 @@ const MessageForm = () => {
     return <Redirect to="/Search" />;
   }
 
+  function cancelMessage() {
+    window.location.assign("#/Search");
+  }
+
   return (
     <div className="flex justify-center">
       <div className="inline-block addbikecontainer align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
@@ -92,13 +96,20 @@ const MessageForm = () => {
                 </div>
               </div>
             </div>
-            {error && <div className="dark:text-gray-300 text-sm text-gray-500">Message is required. Please try again</div>}
+            {error && <div className="dark:text-red-300 text-sm text-red-500">Message is required. Please try again</div>}
             <div className="dark:bg-gray-500 bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 Submit
+              </button>
+              <button
+                className="bg-white hover:bg-grey-200 text-base border border-gray-300 font-bold shadow-sm py-2 px-4 mx-3 rounded focus:outline-none focus:shadow-outline"
+                type="button"
+                onClick={() => cancelMessage()}
+              >
+                Cancel
               </button>
             </div>
           </form>
