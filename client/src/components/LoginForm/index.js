@@ -67,13 +67,13 @@ const LoginForm = props => {
                         value={formState.password}
                         onChange={handleChange} />
                     </div>
-                    <div className="flex items-center justify-between">
+                    {error && <div className="dark:text-red-300 text-sm text-red-500">Login failed. Invalid username or password.</div>}
+                    <div className="flex items-center justify-between my-3">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus: shadow-outline" type="submit">
                             Login
                         </button>
                     </div>
                 </form>
-                {error && <div>Login failed</div>}
                 <HashRouter>
                 <div className="flex justify-center">
                     <p className="pt-2 pr-6 dark:text-gray-300">Not a member?</p>

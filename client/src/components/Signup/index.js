@@ -6,7 +6,7 @@ import Auth from '../../utils/auth';
 
 const SignupForm = () => {
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
-    const [addUser] = useMutation(ADD_USER);
+    const [addUser, { error }] = useMutation(ADD_USER);
 
     // update state based on form input changes
     const handleChange = event => {
@@ -72,8 +72,9 @@ const SignupForm = () => {
                             placeholder="***********" 
                             value={formState.password}
                             onChange={handleChange} />
-                            <p className="text-red-500 text-xs italic">Please choose a password.</p>
+                            {/* <p className="text-red-500 text-xs italic">Please choose a password.</p> */}
                         </div>
+                        {error && <div className="dark:text-red-300 text-sm text-red-500 my-3">Email or username already in use.</div>}
                         <div className="flex items-center justify-between">
                             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus: shadow-outline" type="submit">
                                 Sign Up

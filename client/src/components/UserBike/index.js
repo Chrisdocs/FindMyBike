@@ -15,7 +15,7 @@ const UserBike = () => {
     const [bikeState, setBikeState] = useState([bikes]);
     const [bikeId, setBikeId] = useState();
 
-    console.log(bikeState)
+    // console.log(bikeState)
     useEffect(() => {
         setBikeState(bikes);
     }, [bikes]);
@@ -146,7 +146,7 @@ const UserBike = () => {
                   >
                     Delete
                   </button>
-                  {error && <div className="dark:text-gray-300 text-sm text-gray-500">Something went wrong.. Please try deleting again</div>}
+                  {error && <div className="dark:text-red-300 text-sm text-red-500 py-2">Something went wrong.. Please try deleting again.</div>}
                 </div>
               </div>
             </div>
