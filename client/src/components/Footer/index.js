@@ -23,7 +23,7 @@ const Footer = () => {
     return (
         <div className=" footer-section p-3">
             <footer className="footer-text dark:text-gray-400">
-                        <div class="donation">
+                        <div className="donation">
                             Please consider a small
                             <span className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                                     onClick={submitCheckout}>

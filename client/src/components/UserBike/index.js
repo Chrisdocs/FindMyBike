@@ -8,7 +8,6 @@ import "../../assets/styles/dashboard.css";
 
 const UserBike = () => {
     const { data } = useQuery(QUERY_USER);
-    console.log(data?.user);
 
     const bikes = data?.user.bikes;
 
@@ -16,31 +15,12 @@ const UserBike = () => {
     const [bikeState, setBikeState] = useState([bikes]);
     const [bikeId, setBikeId] = useState();
 
+    console.log(bikeState)
     useEffect(() => {
         setBikeState(bikes);
     }, [bikes]);
 
     const [deleteBike, { error }] = useMutation(DELETE_BIKE);
-
-  // const responsive = {
-  //   superLargeDesktop: {
-  //     // the naming can be any, depends on you.
-  //     breakpoint: { max: 4000, min: 3000 },
-  //     items: 5,
-  //   },
-  //   desktop: {
-  //     breakpoint: { max: 3000, min: 1024 },
-  //     items: 3,
-  //   },
-  //   tablet: {
-  //     breakpoint: { max: 1024, min: 464 },
-  //     items: 2,
-  //   },
-  //   mobile: {
-  //     breakpoint: { max: 464, min: 0 },
-  //     items: 1,
-  //   },
-  // };
 
   function getMessageCount(messageCount, messageArray) {
     // map through messages to collect all reply counts
