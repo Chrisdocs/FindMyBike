@@ -108,7 +108,7 @@ const UserBike = () => {
             className="bg-gray-300 dark:bg-gray-600 p-6 itembox m-2 rounded-3xl shadow-2xl max-w-lg col-container"
             key={bike._id}
           >
-            <div className="bg-gray-600 dark:bg-gray-800 rounded-3xl">
+            <div className="bg-gray-600 dark:bg-gray-800 cardimage rounded-3xl">
               {bike.image ? (
                 <img
                   className="object-cover rounded-3xl img-size p-1"

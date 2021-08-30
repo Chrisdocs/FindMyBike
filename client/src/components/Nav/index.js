@@ -89,8 +89,8 @@ useEffect(() => {
                                 <li><NavLink
                                 exact
                                 to="/"
-                                activeClassName="current-nav"
-                                className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
+                                activeClassName=""
+                                className="block text-sm px-2 py-4 transition duration-300"
                                 replace
                             >
                                 Home
@@ -99,8 +99,8 @@ useEffect(() => {
                                 <li><NavLink
                                 exact
                                 to="/Dashboard"
-                                activeClassName="current-nav dropdown-btn"
-                                className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300 dropdown-btn"
+                                activeClassName="dropdown-btn"
+                                className="block justify-center text-sm px-2 py-4 transition duration-300 dropdown-btn"
                                 replace
                             >
                                 Dashboard
@@ -118,8 +118,8 @@ useEffect(() => {
                                 <li><NavLink
                                 exact
                                 to="/Search"
-                                activeClassName="current-nav"
-                                className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
+                                activeClassName=""
+                                className="block text-sm px-2 py-4 transition duration-300"
                                 replace
                             >
                                 Search
@@ -128,8 +128,8 @@ useEffect(() => {
                                 <li><NavLink
                                 exact
                                 to="/Tips"
-                                activeClassName="current-nav"
-                                className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
+                                activeClassName=""
+                                className="block text-sm px-2 py-4 transition duration-300"
                                 replace
                             >
                                 Tips
@@ -138,7 +138,7 @@ useEffect(() => {
                             {Auth.loggedIn() ? (
                             <>
                                 <li  id="login-out"
-                                    className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
+                                    className="block text-sm px-2 py-4 transition duration-300"
                                     onClick={Auth.logout}
                                 >
                                     Sign Out</li>
@@ -147,8 +147,8 @@ useEffect(() => {
                                 <li><NavLink
                                 exact
                                 to="/Login"
-                                activeClassName="current-nav"
-                                className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
+                                activeClassName=""
+                                className="block text-sm px-2 py-4 transition duration-300"
                                 replace
                             >
                                 Sign In

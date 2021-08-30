@@ -36,3 +36,7 @@
 .col {
   display: table-cell; /* Make elements inside the container behave like table cells */
 }
+
+.cardimage {
+  height:min-content;
+}

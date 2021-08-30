@@ -86,7 +86,7 @@ const BikeMessage = ({ bikeMessages, bike }) => {
   }
   
   return (
-    <div className="flex justify-center w-8/12 p-20 pb-0 pt-0 mt-1">
+    <div className="flex justify-center pb-0 pt-0 mt-1">
       <div className="justify-center inline-block addbikecontainer align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all  sm:align-middle sm:max-w-lg sm:w-full">
         <div className=" addheadercontainer px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div className="sm:flex sm:items-start">

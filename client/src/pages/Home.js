@@ -21,11 +21,11 @@ const Home = () => {
                             <p className="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-300 underline">Register Your Bike</p>
                             <p className="mt-2 text-gray-500 dark:text-gray-400">It’s simple. Sign up and register your bike(s). Enter the brand, model, year, serial number, description and your city.</p><br />
                             <p className="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-300 underline">Update Your Bikes Status</p>
-                            <p className="mt-2 text-gray-500 dark:text-gray-400">If your bike goes missing, update it status to missing. It will then be added to the list of missing bikes in the community. Notifying your fellow bikeslueths to keep an eye out for it. </p><br />
+                            <p className="mt-2 text-gray-500 dark:text-gray-400">If your bike goes missing, update it status to missing. It will then be added to the list of missing bikes in the community. Notifying your fellow bikesleuths to keep an eye out for it. </p><br />
                             <p className="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-300 underline">Share Information</p>
-                            <p className="mt-2 text-gray-500 dark:text-gray-400">If a fellow bikeslueth spots or finds your bike they will be able to message personally.</p><br />
+                            <p className="mt-2 text-gray-500 dark:text-gray-400">If a fellow bikesleuth spots or finds your bike they will be able to message personally.</p><br />
                             <p className="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-300 underline">You Get Your Bike Back</p>
-                            <p className="mt-2 text-gray-500 dark:text-gray-400">With the help of your fellow bikeslueth you have the information necessary to recover your missing bike.</p>
+                            <p className="mt-2 text-gray-500 dark:text-gray-400">With the help of your fellow bikesleuth you have the information necessary to recover your missing bike.</p>
                         </div>
                     </div>
                 </div>

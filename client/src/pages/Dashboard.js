@@ -18,7 +18,7 @@ const Dashboard = () => {
     return (
         <div className="w-screen">
             {Auth.loggedIn() ? (
-                <div className=" flex flex-col pt-10">
+                <div className=" flex flex-col text-center pt-10">
                     <div className="username capitalize dark:text-gray-200">
                         Hello {username}!
                     </div>

@@ -21,7 +21,7 @@ const Footer = () => {
     }
 
     return (
-        <div className=" footer-section">
+        <div className=" footer-section p-3">
             <footer className="footer-text dark:text-gray-400">
                         <div class="donation">
                             Please consider a small

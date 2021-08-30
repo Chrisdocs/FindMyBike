@@ -1,96 +1,94 @@
 /* src/assets/styles/nav.css */
 
 ul {
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .main-nav {
-    font-size: 1em;
-    line-height: 40px;
-    height: 40px;
-    display: inline-block;
+  font-size: 1em;
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
 }
 
 #logout,
 #login-out,
 #login {
-    font-size: 1.2em;
-    line-height: 40px;
-    height: 40px;
-    font-weight: 500;
-    display: inline;
-    text-decoration: none;
-    text-decoration-thickness: 2px;
-    text-decoration-color: rgb(255, 187, 40);
-    cursor: pointer;
+  line-height: 40px;
+  height: 40px;
+  display: inline;
+  text-decoration: none;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgb(255, 187, 40);
+  cursor: pointer;
 }
 
 #logout:hover,
 #login-out:hover {
-    font-size: 1.3em;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-decoration-color: rgb(255, 187, 40);
+  font-size: 1.3em;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgb(255, 187, 40);
 }
 
 .main-nav:hover {
-    font-size: 1.3em;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-decoration-color: rgb(255, 187, 40);
+  font-size: 1.3em;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgb(255, 187, 40);
 }
 
 .current-nav {
-    font-weight: 600;
-    text-decoration: underline;
-    text-decoration-thickness: 4px;
-    text-decoration-color: rgb(255, 187, 40);
-    display: inline-block;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-decoration-color: rgb(255, 187, 40);
+  display: inline-block;
 }
 
-
 .subnav-content {
-    display: none;
-    position: absolute;
-    left: 30%;
-    width: 100%;
-    z-index: 1;
-    overflow: hidden;
+  display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
 }
 
 /* Style the mobile subnav links */
 .subnav-content span {
-    float: left;
-    text-decoration: none;
-    margin-left: 30px;
+  float: left;
+  text-decoration: none;
+  padding-left:15px;
+  padding-right: 15px;
+
 }
 
 /* Add a grey background color on hover */
 .subnav-content span:hover {
-    color: blue;
+  color: blue;
 }
 /* When you move the mouse over the subnav container, open the subnav content */
 .subnav:hover .subnav-content {
-    display: block;
+  display: block;
 }
 
 .dropdown-container {
-    display: none;
-    padding-left: 8px;
+  display: none;
+  padding-left: 8px;
 }
 
 .dropdown-btn {
-    display: block;
+  display: block;
 }
 
 .active {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
 .nav-section i {
-    margin-left: 5px;
+  margin-left: 5px;
 }
