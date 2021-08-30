@@ -82,11 +82,14 @@ ul {
   display: block;
 }
 
-.active {
-  background-color: green;
-  color: white;
-}
 
 .nav-section i {
   margin-left: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .dropdown-container {
+    display: flex !important;
+    justify-content: space-evenly;
+  }
 }
